@@ -47,15 +47,16 @@ class Server:
     def get_hyper(self, page: int = 1, page_size: int = 10) -> Dict:
         '''retrives a hypermedia about a page
         '''
+        assert type(page) == int and page > 0
+        assert type(page_size) == int and page_size > 0
         page_data = self.get_page(page, page_size)
-        start, end = index_range(page, page_size)
-        total_pages = math.floor(len(self.__dataset) / page_size)
+        total_pages = math.floor(len(self.dataset()) / page_size)
         page_info = {
             'page_size': page,
             'page': page,
             'data': page_data,
-            'next_page': page + 1 if end < len(self.__dataset) else None,
-            'prev_page': page - 1 if start > 0 else None,
+            'next_page': page + 1 if page + 1 < total_pages else None,
+            'prev_page': page - 1 if page > 1 else None,
             'total_page': total_pages,
         }
         return page_info
