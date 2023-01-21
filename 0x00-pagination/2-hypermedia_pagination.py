@@ -44,7 +44,7 @@ class Server:
             return []
         return paginatedData[startIndex:endIndex]
 
-    def get_hyper(self, page: int = 1, page_size: int = 10) -> List[List]:
+    def get_hyper(self, page: int = 1, page_size: int = 10) -> Dict:
         '''retrives a hypermedia about a page
         '''
         page_data = self.get_page(page, page_size)
