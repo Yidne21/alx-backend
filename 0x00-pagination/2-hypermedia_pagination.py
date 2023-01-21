@@ -3,7 +3,7 @@
 '''
 import csv
 import math
-from typing import Tuple, List
+from typing import Tuple, List, Dict
 
 
 def index_range(page: int, page_size: int) -> Tuple[int, int]:
