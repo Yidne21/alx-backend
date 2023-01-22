@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
-"""
-Deletion-resilient hypermedia pagination
+"""Deletion-resilient hypermedia pagination
 """
 import csv
 import math
@@ -39,7 +38,8 @@ class Server:
         return self.__indexed_dataset
 
     def get_hyper_index(self, index: int = None, page_size: int = 10) -> Dict:
-        '''Reteieves info about a page from a given index and with a specified size
+        '''Reteieves info about a page from a given
+        index and with a specified size
         '''
         data = self.indexed_dataset()
         assert index is not None and index >= 0 and index <= max(data.keys())
