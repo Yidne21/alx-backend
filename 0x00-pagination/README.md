@@ -1,6 +1,6 @@
 # 0x00. Pagination
 This directory contains different tasks which are used to demonstarate the concept of pagination using python.
-<img src="https://nordicapis.com/wp-content/uploads/Everything-You-Need-to-Know-About-API-Pagination-e1639671225295.png" width = "100%" height = "50%"/>
+<img src="https://nordicapis.com/wp-content/uploads/Everything-You-Need-to-Know-About-API-Pagination-e1639671225295.png" width = "100%" height = "225"/>
 - **Pagination** is a process that is used to divide a large dataset into smaller chunks (pages).
 ## Learning Objectives
 At the end of this project, you are expected to be able to explain to anyone, without the help of Google:
