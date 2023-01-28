@@ -1,5 +1,6 @@
 # 0x00. Pagination
 This directory contains different tasks which are used to demonstarate the concept of pagination using python.
+- **Pagination** is a process that is used to divide a large dataset into smaller chunks (pages).
 ## Learning Objectives
 At the end of this project, you are expected to be able to explain to anyone, without the help of Google:
 
