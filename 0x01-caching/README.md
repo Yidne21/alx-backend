@@ -1,5 +1,10 @@
 # 0x01. Caching
 This directory contains different tasks to demonsrate how caching is implemented in the backend of our system.
+
+---
+<img src="https://kinsta.com/wp-content/uploads/2020/03/How-Web-Cache-Works.png" width = "100%" height = "400"/>
+
+---
 - **Caching** is the term for storing reusable responses in order to make subsequent requests faster.
 ## Resources
 Read or watch:
