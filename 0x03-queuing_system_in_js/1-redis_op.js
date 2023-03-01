@@ -20,7 +20,7 @@ function setNewSchool(schoolName, value) {
       console.log(`Error setting ${schoolName}: ${err}`);
     } else {
       console.log(`${value}`);
-      redis.print(reply);
+      redis.print(`Reply: ${reply}`);
     }
   });
 }
@@ -31,7 +31,7 @@ function displaySchoolValue(schoolName) {
     if (err) {
       console.log(`Error getting ${schoolName}: ${err}`);
     } else {
-      console.log(`${reply}`);
+      console.log(`Replay: ${reply}`);
     }
   });
 }
