@@ -1,5 +1,4 @@
-const kue = require("kue");
-const queue = kue.createQueue();
+import { createQueue } from "kue";
 
 const jobs = [
   {
@@ -48,28 +47,28 @@ const jobs = [
   },
 ];
 
-jobs.forEach((job, index) => {
-  const jobName = `push_notification_code_2_${index}`;
+const queue = createQueue({ name: "push_notification_code_2" });
 
-  const notificationJob = queue
-    .create(jobName, job)
-    .on("complete", () =>
-      console.log(`Notification job ${notificationJob.id} completed`)
-    )
-    .on("failed", (err) =>
-      console.log(`Notification job ${notificationJob.id} failed: ${err}`)
-    )
-    .on("progress", (progress, data) =>
+for (const jobInfo of jobs) {
+  const job = queue.create("push_notification_code_2", jobInfo);
+
+  job
+    .on("enqueue", () => {
+      console.log("Notification job created:", job.id);
+    })
+    .on("complete", () => {
+      console.log("Notification job", job.id, "completed");
+    })
+    .on("failed", (err) => {
       console.log(
-        `Notification job ${notificationJob.id} ${progress}% complete`
-      )
-    );
-
-  notificationJob.save((err) => {
-    if (err) {
-      console.log(`Error creating job ${jobName}: ${err}`);
-    } else {
-      console.log(`Notification job created: ${notificationJob.id}`);
-    }
-  });
-});
+        "Notification job",
+        job.id,
+        "failed:",
+        err.message || err.toString()
+      );
+    })
+    .on("progress", (progress, _data) => {
+      console.log("Notification job", job.id, `${progress}% complete`);
+    });
+  job.save();
+}
